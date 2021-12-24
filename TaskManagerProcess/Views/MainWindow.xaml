@@ -1,0 +1,69 @@
+﻿<Window x:Class="TaskManagerProcess.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskManagerProcess.Views"
+        xmlns:ViewModels="clr-namespace:TaskManagerProcess.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+
+            <ListView x:Name="lv_Tasks" ItemsSource="{Binding Processes}" SelectionMode="Single">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding ProcessName}"/>
+                        <GridViewColumn Header="Handle count" DisplayMemberBinding="{Binding HandleCount}"/>
+                        <GridViewColumn Header="Thread count" DisplayMemberBinding="{Binding Threads.Count}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView x:Name="lv_blackList" ItemsSource="{Binding BlackList}" 
+                  SelectionMode="Single">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Black list"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="txbProcess" 
+                         Margin="10" 
+                         Width="250" 
+                         Padding="5"/>
+                <Button x:Name="btnAddProcessToBlackList"
+                        Margin="10"
+                    Width="150" 
+                    Background="Black"
+                        Foreground="Silver"
+                    FontSize="18" Content="Add Black list" 
+                        Command="{Binding AddProcessToBlaclistCommand}"
+                        />
+                <Button x:Name="btnCreateProcess" 
+                        Margin="10" 
+                        Width="150" 
+                        Background="LightGreen"
+                        FontSize="18" 
+                        Command="{Binding CreateProcessCommand}">Create Process</Button>
+                <Button x:Name="btnEndProcess" 
+                        Margin="10" Width="150" 
+                        Background="PaleVioletRed"
+                        FontSize="18" 
+                        Command="{Binding EndProcessCommand}">End Process</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
+
+
