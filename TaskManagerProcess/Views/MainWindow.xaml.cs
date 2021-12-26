@@ -27,9 +27,7 @@ namespace TaskManagerProcess.Views
     public partial class MainWindow : Window
     {
         public MainViewModel MainViewModel { get; set; }
-        //public ObservableCollection<Process> Processes { get; set; }
-        //public ObservableCollection<string> BlackList { get; set; } = new ObservableCollection<string>();
-        //private DispatcherTimer _timer;
+       
         public MainWindow()
         {
             try
@@ -46,71 +44,6 @@ namespace TaskManagerProcess.Views
             
         }
 
-        //private void BtnCreateProcess_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (!string.IsNullOrWhiteSpace(txbProcess.Text))
-        //        {
-        //            Process process = new Process();
-        //            process.StartInfo.FileName = txbProcess.Text;
-        //            Processes.Add(process);
-        //            process.Start();
-        //            if (BlackList.Any(x => x == txbProcess.Text))
-        //            {
-        //                Thread.Sleep(3000);
-        //                Processes.Remove(process);
-        //                process.Kill();
-        //            }
-        //        }
-        //        else
-        //            MessageBox.Show("Error!");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-
-        //private void BtnEndProcess_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        var process = lv_Tasks.SelectedItem as Process;
-        //        Processes.Remove(process);
-        //        process.Kill();
-        //        _timer.Start();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-        //void Timer_Tick(object sender, EventArgs e)
-        //{
-        //    Processes = new ObservableCollection<Process>(Process.GetProcesses());
-        //    lv_Tasks.ItemsSource = Processes;
-        //}
-
-        //private void BtnAddProcessToBlackList_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (!string.IsNullOrWhiteSpace(txbProcess.Text))
-        //    {
-
-        //        if (!BlackList.Any(x => x == txbProcess.Text))
-        //        {
-        //            BlackList.Add(txbProcess.Text);
-        //            txbProcess.Text = "";
-        //        }
-        //    }
-        //    else
-        //        MessageBox.Show("Error!");
-
-        //}
-
-        //private void Lv_Tasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    _timer.Stop();
-        //}
+       
     }
 }
